@@ -95,16 +95,64 @@ a:hover{text-decoration:underline}
 .site-footer{border-top:1px solid var(--border); background:var(--panel); margin-top:40px}
 .footer-inner{display:flex; gap:14px; flex-wrap:wrap; align-items:center; padding:22px 0; color:var(--muted); font-size:14px}
 .empty{text-align:center; color:var(--muted); padding:50px}
+/* contribute form (استایل مدرن، دو ستونه و گلس‌مورفیسم) */
+.contrib-form, .form {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 760px;
+  margin: 26px auto 60px;
+  box-shadow: var(--shadow-2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
 
-/* contribute form */
-.form{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:28px; max-width:720px; margin:26px 0 60px}
-.form label{display:block; margin:14px 0 6px; font-weight:600}
-.form input,.form select,.form textarea{width:100%; padding:11px 14px; border-radius:12px; border:1px solid var(--border); background:var(--panel-solid); color:var(--text); font-family:inherit; font-size:15px}
-.form textarea{min-height:220px; resize:vertical}
-.form .row{display:flex; gap:14px; flex-wrap:wrap}
-.form .row>div{flex:1; min-width:180px}
-.hint{font-size:13px; color:var(--muted); margin-top:4px}
-@media(max-width:560px){.hero h1{font-size:30px}.article{padding:20px}}
+.contrib-form .full, .form .full {
+  grid-column: 1 / -1;
+}
+
+.contrib-form label, .form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.contrib-form input, .contrib-form select, .contrib-form textarea,
+.form input, .form select, .form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel-solid);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.contrib-form input:focus, .contrib-form textarea:focus,
+.form input:focus, .form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.contrib-form textarea, .form textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+@media(max-width: 640px) {
+  .contrib-form, .form {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+  }
+}
 
 /* ===================== 3D depth enhancements ===================== */
 :root{
