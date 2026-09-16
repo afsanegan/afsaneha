@@ -1,18 +1,4 @@
-/**
- * افسانه‌ها — Cloudflare Worker (submission bot)
- * -------------------------------------------------
- * وظیفه: دریافت فرم از سایت → ساخت فایل markdown → باز کردن Pull Request روی مخزن عمومی.
- *
- * امنیت (مهم — مخزن عمومی است):
- *  - توکن فقط در Worker Secrets ذخیره می‌شود (wrangler secret put ...). هرگز در ریپو نرود.
- *  - ترجیحاً یک GitHub App بساز و installation token بگیر (امن‌تر از PAT). برای شروع می‌توان از fine-grained PAT محدود به همین یک مخزن استفاده کرد.
- *  - Turnstile (کپچا) را اعتبارسنجی می‌کند تا اسپم رباتی جلوگیری شود.
- *
- * Secrets لازم (با wrangler secret put تنظیم کن):
- *   GITHUB_TOKEN         – توکن دسترسی به مخزن (contents + pull_requests)
- *   TURNSTILE_SECRET     – کلید مخفی Turnstile (اختیاری)
- * Vars (در wrangler.toml):
- *   GH_OWNER, GH_REPO, GH_BASE (مثلاً main), ALLOWED_ORIGIN
+
  */
 
 const API_BASE = "https://api.github.com";
