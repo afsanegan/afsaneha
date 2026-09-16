@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: faragomanyoutube/afsaneha
+  repo: afsanegan/afsaneha
   branch: main
   # OAuth provider REQUIRED for github backend on GitHub Pages (see admin/README.md):
   # base_url: https://your-oauth-provider.example
