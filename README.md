@@ -15,7 +15,7 @@
 [![PWA Ready](https://img.shields.io/badge/PWA-Supported-purple.svg)](#)
 [![Static Site](https://img.shields.io/badge/Deploy-GitHub_Pages-black.svg)](#)
 
-[فارسی / Persian](./README.fa.md) • [Live Demo](https://faragomanyoutube.github.io/afsaneha/) • [Submit a Legend](https://faragomanyoutube.github.io/afsaneha/contribute.html)
+[فارسی / Persian](./README.fa.md) • [Live Demo](https://afsanegan.ir/) • [Submit a Legend](https://faragomanyoutube.github.io/afsaneha/contribute.html)
 
 </div>
 
