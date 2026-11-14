@@ -106,6 +106,7 @@ function storyHtml(it, prefix){
     '<meta name="twitter:card" content="summary_large_image">\n'+
     '<link rel="alternate" type="application/rss+xml" title="افسانه‌ها" href="'+prefix+'feed.xml">\n'+
     '<link rel="icon" href="'+prefix+'assets/img/favicon.png">\n'+
+    '<link rel="apple-touch-icon" href="'+prefix+'assets/img/icon-192.png">\n'+
     '<link rel="manifest" href="'+prefix+'manifest.webmanifest">\n<meta name="theme-color" content="#2a0e1f">\n'+
     '<link rel="stylesheet" href="'+prefix+'assets/css/style.css">\n</head>\n<body>\n'+
     '<header class="site-header"><div class="container header-inner">'+
@@ -135,10 +136,19 @@ function storyHtml(it, prefix){
       '<section class="comments" id="comments"><h2 data-i18n="comments">نظرات</h2><div id="giscus"></div></section>'+
     '</article></main>'+
     '<button class="btn reading-exit" id="readingExit"></button>'+
-    '<footer class="site-footer"><div class="container footer-inner"><span data-i18n="footer"></span></div></footer>'+
+    '<footer class="site-footer"><div class="container footer-inner">'+
+      '<span data-i18n="footer"></span>'+
+      '<span class="spacer"></span>'+
+      '<div class="footer-links">'+
+        '<a href="[https://t.me/afsanegancb](https://t.me/afsanegancb)" target="_blank" rel="noopener" data-i18n="tgRepo">کانال افسانه‌ها</a>'+
+        '<a href="[https://t.me/faragomancb](https://t.me/faragomancb)" target="_blank" rel="noopener" data-i18n="tgDev">کانال تلگرامی توسعه‌دهنده</a>'+
+      '</div>'+
+    '</div></footer>'+
     '<script>window.__LEGEND__='+LJSON+';</script>'+
+    '<script src="'+prefix+'assets/js/pwa.js" defer></script>'+
     '<script type="module" src="'+prefix+'assets/js/story.js"></script>'+
     '<script src="'+prefix+'assets/js/tilt.js" defer></script>'+
+    '<script src="'+prefix+'assets/js/nav.js" defer></script>'+
   '</body>\n</html>\n';
 }
 await fs.rm(STORY,{recursive:true,force:true});
@@ -157,12 +167,12 @@ const rssItems=items.map(i=>{ const link=SITE?SITE+"/"+i.url:i.url;
 const rss="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\">\n<channel>\n  <title>افسانه‌ها</title>\n  <link>"+esc(SITE||"")+"</link>\n  <description>گنجینه‌ی مردمی افسانه‌ها و قصه‌های محلی ایران</description>\n  <language>fa-IR</language>\n  <lastBuildDate>"+rfc822()+"</lastBuildDate>\n"+rssItems+"\n</channel>\n</rss>\n";
 await fs.writeFile(path.join(ROOT,"feed.xml"), rss, "utf8");
 
-const jsonFeed={ version:"https://jsonfeed.org/version/1.1", title:"افسانه‌ها", home_page_url:SITE||"", feed_url:(SITE?SITE+"/feed.json":"feed.json"),
+const jsonFeed={ version:"[https://jsonfeed.org/version/1.1](https://jsonfeed.org/version/1.1)", title:"افسانه‌ها", home_page_url:SITE||"", feed_url:(SITE?SITE+"/feed.json":"feed.json"),
   language:"fa", items:items.map(i=>({ id:(SITE?SITE+"/"+i.url:i.url), url:(SITE?SITE+"/"+i.url:i.url), title:i.title_fa||i.slug, content_text:i.excerpt_fa||"", date_published:i.created||null, tags:i.tags, authors:[{name:i.author||"ناشناس"}] })) };
 await fs.writeFile(path.join(ROOT,"feed.json"), JSON.stringify(jsonFeed,null,2), "utf8");
 
 const staticUrls=["index.html","about.html","contribute.html","contributors.html"];
-const sm="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"+
+const sm="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"[http://www.sitemaps.org/schemas/sitemap/0.9](http://www.sitemaps.org/schemas/sitemap/0.9)\">\n"+
   staticUrls.map(u=>"  <url><loc>"+esc((SITE?SITE+"/":"")+u)+"</loc></url>").join("\n")+"\n"+
   items.map(i=>"  <url><loc>"+esc(SITE?SITE+"/"+i.url:i.url)+"</loc></url>").join("\n")+"\n</urlset>\n";
 await fs.writeFile(path.join(ROOT,"sitemap.xml"), sm, "utf8");
