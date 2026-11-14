@@ -44,8 +44,8 @@ async function renderLegend(){
     item.creature&&'<span class="tag">'+s.creature+': '+item.creature+'</span>' ].filter(Boolean).join("");
   const audio=data.audio?('<div class="audio-block"><div class="cap">🎙️ '+s.listen+(item.dialect?' · '+item.dialect:"")+'</div><audio controls preload="none" src="legends/'+item.path+'/'+data.audio+'"></audio></div>'):"";
   const shareUrl=location.href;
-  const share='<div class="share" id="share"><button class="btn" id="shareBtn">⤴ '+s.share+'</button><div class="share-menu">'+
-    '<button id="copyLink">🔗 '+s.copyLink+'</button>'+
+  const share='<div class="share" id="share"><button class="btn" id="shareBtn" type="button">⤴ '+s.share+'</button><div class="share-menu">'+
+    '<button id="copyLink" type="button">🔗 '+s.copyLink+'</button>'+
     '<a target="_blank" rel="noopener" href="https://t.me/share/url?url='+encodeURIComponent(shareUrl)+'&text='+encodeURIComponent(title)+'">✈️ '+s.telegram+'</a>'+
     '<a target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(title+" "+shareUrl)+'">🟢 '+s.whatsapp+'</a>'+
     '</div></div>';
@@ -58,7 +58,7 @@ async function renderLegend(){
     '<a class="btn" href="index.html">← '+s.back+'</a>'+
     '<h1>'+title+'</h1>'+
     '<div class="legend-toolbar"><span class="read-time">⏱ '+minsTxt+'</span>'+
-      '<button class="btn" id="readBtn">📖 '+s.readingMode+'</button>'+share+'</div>'+
+      '<button class="btn" id="readBtn" type="button">📖 '+s.readingMode+'</button>'+share+'</div>'+
     '<div class="metabar">'+meta+'</div>'+
     (showNotice?'<div class="notice">'+s.noEnglish+'</div>':"")+audio+
     '<div class="body" dir="'+(useLang==="en"?"ltr":"rtl")+'">'+renderMarkdown(body)+'</div>'+
@@ -69,20 +69,55 @@ async function renderLegend(){
   wireLegendUI();
   mountGiscus();
 }
+
+async function copyText(text){
+  if(navigator.clipboard && window.isSecureContext){
+    try{ await navigator.clipboard.writeText(text); return true; }catch{}
+  }
+  try{
+    const ta=document.createElement("textarea");
+    ta.value=text; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    const ok=document.execCommand("copy"); ta.remove(); return ok;
+  }catch{ return false; }
+}
+
 function wireLegendUI(){
   const s=t();
-  const sb=document.getElementById("shareBtn"); const sw=document.getElementById("share");
-  if(sb) sb.addEventListener("click",e=>{ e.stopPropagation();
-    if(navigator.share){ navigator.share({title:document.title, url:location.href}).catch(()=>{}); return; }
-    sw.classList.toggle("open"); });
+  const sb=document.getElementById("shareBtn");
+  const sw=document.getElementById("share");
+  const sm=sw?.querySelector(".share-menu");
+  if(sb) sb.addEventListener("click",e=>{
+    e.preventDefault();
+    e.stopPropagation();
+    sw?.classList.toggle("open");
+  });
+  sm?.addEventListener("click",e=>e.stopPropagation());
   document.addEventListener("click",()=>{ if(sw) sw.classList.remove("open"); });
+
   const cp=document.getElementById("copyLink");
-  if(cp) cp.addEventListener("click",async()=>{ try{ await navigator.clipboard.writeText(location.href); cp.textContent="✅ "+s.copied; setTimeout(()=>cp.textContent="🔗 "+s.copyLink,1500);}catch(e){} });
+  if(cp) cp.addEventListener("click",async e=>{
+    e.stopPropagation();
+    const ok=await copyText(location.href);
+    if(ok){
+      cp.textContent="✅ "+s.copied;
+      setTimeout(()=>{ cp.textContent="🔗 "+s.copyLink; sw?.classList.remove("open"); },1200);
+    }
+  });
+
   const rb=document.getElementById("readBtn");
-  if(rb) rb.addEventListener("click",()=>{ document.body.classList.add("reading"); });
   const ex=document.getElementById("readingExit");
+  if(ex) ex.textContent="✕ "+s.exitReading;
+  if(rb) rb.addEventListener("click",()=>{ document.body.classList.add("reading"); });
   if(ex) ex.addEventListener("click",()=>document.body.classList.remove("reading"));
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape"){
+      document.body.classList.remove("reading");
+      sw?.classList.remove("open");
+    }
+  });
 }
+
 function mountGiscus(){
   const g=CFG.giscus||{}; if(!g.enabled||!g.repo||!g.repoId) return;
   const host=document.getElementById("giscus"); if(!host) return;
