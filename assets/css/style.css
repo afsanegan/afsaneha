@@ -152,8 +152,52 @@ a:hover{text-decoration:underline}
 .welcome-actions .btn{
   padding:6px 11px; font-size:12.5px; flex:1 1 auto; justify-content:center;
 }
+
+/* first-visit PWA install popup */
+.pwa-pop{
+  position:fixed; bottom:20px; inset-inline-end:20px; z-index:95;
+  width:min(365px, calc(100vw - 28px));
+  background:color-mix(in srgb, var(--panel-solid) 94%, transparent);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border:1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  border-radius:18px; padding:16px 18px;
+  box-shadow:0 18px 44px rgba(0,0,0,.5), 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
+  opacity:0; transform:translateY(26px) scale(.96); pointer-events:none;
+  transition:opacity .35s ease, transform .35s cubic-bezier(.22,1,.36,1);
+}
+.pwa-pop.show{
+  opacity:1; transform:translateY(0) scale(1); pointer-events:auto;
+}
+.pwa-close{
+  position:absolute; top:10px; inset-inline-end:10px;
+  width:28px; height:28px; border-radius:50%; border:1px solid var(--border);
+  background:var(--panel); color:var(--muted); cursor:pointer;
+  display:grid; place-items:center; font-size:13px; transition:.2s;
+}
+.pwa-close:hover{border-color:var(--accent); color:var(--text)}
+.pwa-head{
+  display:flex; align-items:flex-start; gap:12px; padding-inline-end:24px;
+}
+.pwa-icon{
+  width:46px; height:46px; border-radius:12px; flex-shrink:0;
+  border:1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow:0 6px 16px rgba(0,0,0,.3);
+}
+.pwa-title{
+  font-weight:800; font-size:15px; color:var(--accent); margin-bottom:4px;
+}
+.pwa-desc{
+  margin:0; font-size:12.5px; line-height:1.65; color:var(--muted);
+}
+.pwa-actions{
+  display:flex; gap:8px; margin-top:13px;
+}
+.pwa-actions .btn{
+  flex:1 1 0; justify-content:center; padding:7px 12px; font-size:13px;
+}
+
 @media(max-width:480px){
-  .welcome-pop{bottom:12px; inset-inline-end:14px; inset-inline-start:14px; width:auto}
+  .welcome-pop, .pwa-pop{bottom:12px; inset-inline-end:14px; inset-inline-start:14px; width:auto}
 }
 
 /* footer */
