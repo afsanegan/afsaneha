@@ -55,7 +55,15 @@ a:hover{text-decoration:underline}
 .hero img.logo{width:96px; height:96px; object-fit:contain; margin-bottom:10px}
 .hero h1{font-size:40px; margin:6px 0}
 .hero p{color:var(--muted); font-size:18px; max-width:620px; margin:8px auto 22px}
-.hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.hero .cta,.hero-cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.hero-socials{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px}
+.tg-btn{
+  font-size:13px; padding:7px 14px;
+  background:color-mix(in srgb,var(--accent2) 14%,var(--panel-solid));
+  border-color:color-mix(in srgb,var(--accent2) 38%,var(--border));
+}
+.tg-btn:hover{border-color:var(--accent2); color:var(--text); text-decoration:none}
+.tg-btn svg{color:var(--accent2); flex-shrink:0}
 
 /* search + filters */
 .toolbar{display:flex; gap:12px; flex-wrap:wrap; margin:26px 0 10px}
@@ -94,7 +102,11 @@ a:hover{text-decoration:underline}
 /* footer */
 .site-footer{border-top:1px solid var(--border); background:var(--panel); margin-top:40px}
 .footer-inner{display:flex; gap:14px; flex-wrap:wrap; align-items:center; padding:22px 0; color:var(--muted); font-size:14px}
+.footer-links{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+.footer-links a{color:var(--muted); transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
 .empty{text-align:center; color:var(--muted); padding:50px}
+
 /* contribute form (استایل مدرن، دو ستونه و گلس‌مورفیسم) */
 .contrib-form, .form {
   background: var(--panel);
@@ -214,13 +226,11 @@ body::before{ background-attachment:fixed; }
 }
 
 /* ============ background polish (source image untouched — CSS overlays only) ============ */
-/* soften the low-res map so pixelation reads as an intentional soft backdrop */
 body::before{
   filter:saturate(.95) blur(1.4px);
-  transform:scale(1.06);            /* hides the blur's transparent edge halo */
+  transform:scale(1.06);
   opacity:.2;
 }
-/* ambient light + theme-aware vignette + fine grain, above the map, below content */
 body::after{
   content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
   background:
@@ -231,7 +241,6 @@ body::after{
   background-size:140px 140px, cover, cover, cover;
   background-repeat:repeat, no-repeat, no-repeat, no-repeat;
 }
-/* a touch more depth on hero text so it lifts off the softened backdrop */
 .hero h1{ text-shadow:0 2px 18px rgba(0,0,0,.35) }
 [data-theme="light"] .hero h1{ text-shadow:0 2px 14px rgba(60,40,20,.18) }
 
@@ -353,7 +362,14 @@ body.reading .reading-exit{ display:inline-flex }
   .hero p,.hero .tagline,.hero .hero-text{ font-size:15px }
   .hero img.logo{ width:74px; height:74px }
   .hero .cta,.hero-cta{ gap:8px }
-  .hero .btn,.hero-cta .btn{ flex:1 1 auto; text-align:center }
+  .hero .btn,.hero-cta .btn{ flex:1 1 auto; text-align:center; justify-content:center }
+  .hero-socials{ gap:8px; margin-top:12px }
+  .hero-socials .btn{ flex:1 1 auto; justify-content:center }
+
+  /* footer در موبایل */
+  .footer-inner{ flex-direction:column; text-align:center; gap:10px }
+  .footer-inner .spacer{ display:none }
+  .footer-links{ justify-content:center; gap:14px }
 
   /* ابزارهای فیلتر: تمام‌عرض */
   .toolbar{ gap:8px; margin:16px 0 8px }
