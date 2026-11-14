@@ -8,14 +8,17 @@ export function detectSeason(d){
   if(m===12 || m<=1) return "winter";
   return "none";
 }
-export function applySeason(){
-  const pref=localStorage.getItem("afsaneha_season")||"auto";
+export function getSeasonPref(){
+  return localStorage.getItem("afsaneha_season") || "auto";
+}
+export function applySeason(prefOverride){
+  const pref = prefOverride || getSeasonPref();
   const s = pref==="auto" ? detectSeason() : pref;
   document.documentElement.setAttribute("data-season", s);
   if(s==="yalda" || s==="winter") mountSnow(); else removeSnow();
   return s;
 }
-export function setSeasonPref(p){ localStorage.setItem("afsaneha_season", p); applySeason(); }
+export function setSeasonPref(p){ localStorage.setItem("afsaneha_season", p); applySeason(p); }
 function removeSnow(){ const c=document.getElementById("snow"); if(c) c.remove(); }
 function mountSnow(){
   if(document.getElementById("snow")) return;
