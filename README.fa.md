@@ -9,8 +9,7 @@
 [![PWA Ready](https://img.shields.io/badge/PWA-Supported-purple.svg)](#)
 [![Static Site](https://img.shields.io/badge/Deploy-GitHub_Pages-black.svg)](#)
 
-[انگلیسی / English](./README.md) • [مشاهده سایت](https://faragomanyoutube.github.io/afsaneha/) • [ثبت افسانه محلی](https://faragomanyoutube.github.io/afsaneha/contribute.html)
-
+[انگلیسی / English](./README.md) 
 </div>
 
 ---
