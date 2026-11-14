@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>درباره — افسانه‌ها</title>
-<meta name="description" content="درباره‌ی پروژه‌ی افسانه‌ها">
+<meta name="description" content="درباره‌ی پروژه‌ی افسانه‌ها — آرشیو دیجیتال، مستقل و متن‌باز افسانه‌ها و روایت‌های محلی ایران">
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#2a0e1f">
 <link rel="alternate" type="application/rss+xml" title="افسانه‌ها" href="feed.xml">
@@ -14,23 +14,162 @@
   <a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo-amber.png" alt="افسانه‌ها"><span data-i18n="site">افسانه‌ها</span></a>
   <div class="spacer"></div>
   <a class="btn" href="contribute.html" data-i18n="contribute">ثبت افسانه‌ی جدید</a>
+  <a class="btn" href="contributors.html" data-i18n="contributors">مشارکت‌کنندگان</a>
   <button class="btn" id="langBtn">EN</button><button class="btn" id="themeBtn" title="theme">◐</button>
 </div></header>
+
 <main class="container">
-  <h1 data-i18n="aboutTitle">درباره‌ی افسانه‌ها</h1>
-  <div class="body" style="max-width:720px">
-    <p data-i18n="aboutP1"></p>
-    <p data-i18n="aboutP2"></p>
-    <p data-i18n="aboutP3"></p>
-  </div>
+  <!-- نسخه فارسی -->
+  <article class="article about-article" data-lang-block="fa" dir="rtl">
+    <h1>درباره‌ی پروژه‌ی «افسانه‌ها» 🏔️✨</h1>
+    <p class="lead">
+      شاید آخرین باری که یک افسانه‌ی قدیمی، یک متل یا قصه‌ی یک موجود عجیب محلی را شنیدیم، پای صحبت‌های مادربزرگ‌ها و پدربزرگ‌ها بود؛ قصه‌هایی که قرن‌ها سینه‌به‌سینه از دل کوه‌ها، جنگل‌ها، کویرها و سواحل این سرزمین چرخیده‌اند تا به ما برسند.
+    </p>
+    <p>
+      اما با گذر زمان و رفتن بزرگ‌ترها، بخش عظیمی از این گنجینه‌ی شفاهی در آستانه‌ی فراموشی قرار گرفته است. پروژه‌ی <strong>«افسانه‌ها»</strong> راه افتاده تا نگذارد این صداها خاموش شوند.
+    </p>
+
+    <h2>🌿 افسانه‌ها چیست؟</h2>
+    <p>
+      یک آرشیو دیجیتال، مستقل و متن‌باز (Open Source) برای جمع‌آوری و نگهداری قصه‌ها، فولکلور، موجودات اساطیری، ضرب‌المثل‌ها و روایت‌های محلی تمام شهرها و روستاهای ایران. ما باور داریم این قصه‌ها متعلق به همه‌ی مردم است:
+    </p>
+    <ul class="about-features">
+      <li>🗺️ <strong>نقشه‌ی تعاملی ایران:</strong> با کلیک روی هر استان می‌توانید افسانه‌ها و روایت‌های همان خطه را بخوانید.</li>
+      <li>🎙️ <strong>روایت صوتی و لهجه‌های بومی:</strong> پشتیبانی از صدای راویان محلی و حفظ اصالت گویش‌های منطقه‌ای.</li>
+      <li>🗄️ <strong>داده‌های آزاد و ماندگار:</strong> تمام روایت‌ها با مجوز آزاد (CC BY 4.0) و در قالب فایل‌های متنی استاندارد نگهداری می‌شوند.</li>
+    </ul>
+
+    <h2>🤝 چطور می‌توانید در این مسیر کنار ما باشید؟</h2>
+
+    <div class="about-grid">
+      <div class="about-box">
+        <h3>🔻 مشارکت عمومی (ارسال قصه و صوت)</h3>
+        <p>
+          قصه‌های شهر و روستای خودتان، داستان‌هایی که از بزرگ‌ترها شنیده‌اید یا حتی فایل صوتی تعریف کردن یک افسانه‌ی محلی را برایمان بفرستید. روایت شما با نام خودتان (یا به‌صورت ناشناس) و با ذکر منطقه و لهجه ثبت می‌شود.
+        </p>
+        <div class="about-actions">
+          <a class="btn primary" href="https://t.me/afsanegancb?direct" target="_blank" rel="noopener">📩 ارسال به دایرکت کانال</a>
+          <a class="btn" href="https://t.me/afsaneganbot" target="_blank" rel="noopener">🤖 ارسال ناشناس (@afsaneganbot)</a>
+        </div>
+      </div>
+
+      <div class="about-box">
+        <h3>🔻 توسعه‌دهندگان و برنامه‌نویسان (مشارکت در کد)</h3>
+        <p>
+          این پروژه کاملاً متن‌باز است و کدهای فرانت‌اند و ورکر آن روی گیت‌هاب قرار دارد. در حال حاضر بخش فرم ارسال آنلاین در سایت نیاز به اصلاح و تکمیل دارد؛ از Pull Requestها و ایده‌های شما برای بهبود سایت و نقشه به شدت استقبال می‌کنیم!
+        </p>
+        <div class="about-actions">
+          <a class="btn" href="https://github.com/afsanegan/afsaneha" target="_blank" rel="noopener">💻 مخزن گیت‌هاب پروژه</a>
+          <a class="btn" href="https://t.me/faragomancb" target="_blank" rel="noopener">✈️ کانال تلگرامی توسعه‌دهنده</a>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="about-quote">
+      کوچک‌ترین قصه یا باوری که در یاد دارید، بخشی از شناسنامه‌ی فرهنگی ماست. همراهمان باشید و این آرشیو را با عاشقان فرهنگ و قصه‌های ایران به اشتراک بگذارید. 🤍
+      <br>
+      <a href="https://t.me/afsanegancb" target="_blank" rel="noopener">🕊 کانال تلگرام افسانه‌ها (@afsanegancb)</a>
+    </blockquote>
+  </article>
+
+  <!-- نسخه انگلیسی -->
+  <article class="article about-article" data-lang-block="en" dir="ltr" style="display:none">
+    <h1>About Afsaneha 🏔️✨</h1>
+    <p class="lead">
+      Perhaps the last time we heard an old legend, a folk tale, or the story of a mysterious local creature was beside our grandparents—tales passed down for centuries across Iran's mountains, forests, deserts, and coasts.
+    </p>
+    <p>
+      As time passes, a vast portion of this oral heritage risks fading into silence. <strong>Afsaneha</strong> was created to keep these voices alive forever.
+    </p>
+
+    <h2>🌿 What is Afsaneha?</h2>
+    <p>
+      An independent, open-source digital archive dedicated to collecting and preserving folk tales, mythical creatures, proverbs, and local narratives from every city and village across Iran:
+    </p>
+    <ul class="about-features">
+      <li>🗺️ <strong>Interactive Map of Iran:</strong> Tap any province to explore its regional legends and folklore.</li>
+      <li>🎙️ <strong>Audio Narration & Dialects:</strong> Preserving local accents and spoken stories from regional storytellers.</li>
+      <li>🗄️ <strong>Open & Resilient Data:</strong> All legends are stored as clean Markdown files licensed under CC BY 4.0.</li>
+    </ul>
+
+    <h2>🤝 How Can You Contribute?</h2>
+
+    <div class="about-grid">
+      <div class="about-box">
+        <h3>🔻 Public Contributors (Share a Story or Audio)</h3>
+        <p>
+          Send us the stories of your hometown or village, tales heard from elders, or an audio recording of a local legend. Your story will be published under your name (or anonymously) with its region and dialect.
+        </p>
+        <div class="about-actions">
+          <a class="btn primary" href="https://t.me/afsanegancb?direct" target="_blank" rel="noopener">📩 Send via Channel Direct</a>
+          <a class="btn" href="https://t.me/afsaneganbot" target="_blank" rel="noopener">🤖 Anonymous Bot (@afsaneganbot)</a>
+        </div>
+      </div>
+
+      <div class="about-box">
+        <h3>🔻 Developers & Programmers (Contribute Code)</h3>
+        <p>
+          Afsaneha is fully open-source on GitHub. Currently, the online web submission form needs fixes and improvements—we warmly welcome your Pull Requests and ideas to improve the site and interactive map!
+        </p>
+        <div class="about-actions">
+          <a class="btn" href="https://github.com/afsanegan/afsaneha" target="_blank" rel="noopener">💻 GitHub Repository</a>
+          <a class="btn" href="https://t.me/faragomancb" target="_blank" rel="noopener">✈️ Developer's Telegram Channel</a>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="about-quote">
+      Even the smallest tale or belief you remember is part of our cultural identity. Join us and share this archive with everyone who loves Iranian folklore. 🤍
+      <br>
+      <a href="https://t.me/afsanegancb" target="_blank" rel="noopener">🕊 Afsaneha Telegram Channel (@afsanegancb)</a>
+    </blockquote>
+  </article>
 </main>
-<footer class="site-footer"><div class="container footer-inner"><span data-i18n="footer"></span></div></footer>
-<script type="module">import {applyI18n} from "./assets/js/i18n.js"; applyI18n();
-  const t=document.getElementById("themeBtn"); const l=document.getElementById("langBtn");
-  const set=k=>document.documentElement.setAttribute("data-theme",k);
-  set(localStorage.getItem("afsaneha_theme")||"dark");
-  t&&t.addEventListener("click",()=>{const n=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";set(n);localStorage.setItem("afsaneha_theme",n);});
-  l&&l.addEventListener("click",()=>{const n=(localStorage.getItem("afsaneha_lang")||"fa")==="fa"?"en":"fa";localStorage.setItem("afsaneha_lang",n);location.reload();});
+
+<footer class="site-footer"><div class="container footer-inner">
+  <span data-i18n="footer"></span>
+  <span class="spacer"></span>
+  <div class="footer-links">
+    <a href="https://t.me/afsanegancb" target="_blank" rel="noopener" data-i18n="tgRepo">کانال افسانه‌ها</a>
+    <a href="https://t.me/faragomancb" target="_blank" rel="noopener" data-i18n="tgDev">کانال تلگرامی توسعه‌دهنده</a>
+  </div>
+</div></footer>
+
+<script type="module">
+  import { STR, getLang, setLang, getTheme, setTheme, applyDocLang } from "./assets/js/i18n.js";
+  let lang = getLang();
+  function updateLogo(){
+    const th = getTheme();
+    document.querySelectorAll("img.brand-logo").forEach(img => {
+      img.src = th === "light" ? "assets/img/logo-purple.png" : "assets/img/logo-amber.png";
+    });
+  }
+  function renderAbout(){
+    const s = STR[lang] || STR.fa;
+    applyDocLang(lang);
+    document.title = lang === "en" ? "About — Afsaneha" : "درباره — افسانه‌ها";
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const k = el.getAttribute("data-i18n");
+      if (s[k] !== undefined) el.textContent = s[k];
+    });
+    const lb = document.getElementById("langBtn");
+    if (lb) lb.textContent = s.langBtn;
+    document.querySelectorAll("[data-lang-block]").forEach(b => {
+      b.style.display = b.getAttribute("data-lang-block") === lang ? "" : "none";
+    });
+  }
+  setTheme(getTheme());
+  updateLogo();
+  renderAbout();
+  document.getElementById("themeBtn")?.addEventListener("click", () => {
+    setTheme(getTheme() === "dark" ? "light" : "dark");
+    updateLogo();
+  });
+  document.getElementById("langBtn")?.addEventListener("click", () => {
+    lang = lang === "fa" ? "en" : "fa";
+    setLang(lang);
+    renderAbout();
+  });
 </script>
 <script src="assets/js/nav.js" defer></script>
 </body>
