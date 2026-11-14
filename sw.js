@@ -1,4 +1,4 @@
-const VERSION = "afsaneha-v3";
+const VERSION = "afsaneha-v4";
 const SHELL = [
   "./",
   "./index.html",
@@ -26,8 +26,6 @@ const SHELL = [
   "./assets/data/legends.json",
   "./assets/data/provinces.json",
   "./assets/img/favicon.png",
-  "./assets/img/icon-192.png",
-  "./assets/img/icon-512.png",
   "./assets/img/logo-amber.png",
   "./assets/img/logo-purple.png"
 ];
@@ -54,7 +52,6 @@ self.addEventListener("fetch", e => {
   const url = new URL(req.url);
   if (url.origin !== location.origin) return;
 
-  // Network-first for JSON & Markdown so new legends appear immediately when online
   const isData = url.pathname.endsWith(".json") || url.pathname.endsWith(".md");
   if (isData) {
     e.respondWith(
@@ -71,7 +68,6 @@ self.addEventListener("fetch", e => {
     return;
   }
 
-  // Cache-first with network fallback & offline page for navigation
   e.respondWith(
     caches.match(req).then(hit => {
       if (hit) return hit;
