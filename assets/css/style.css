@@ -298,15 +298,15 @@ body::after{
 .map-head{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:6px }
 .map-head h2{ margin:0; font-size:1.4rem }
 .map-head .hint{ color:var(--muted); font-size:.9rem }
-.map-wrap{ position:relative; border:1px solid var(--line); border-radius:var(--radius);
-  background:linear-gradient(180deg, color-mix(in srgb,var(--card) 70%,transparent), transparent);
+.map-wrap{ position:relative; border:1px solid var(--border); border-radius:var(--radius);
+  background:linear-gradient(180deg, color-mix(in srgb,var(--panel-solid) 70%,transparent), transparent);
   box-shadow:var(--shadow-1); overflow:hidden; padding:6px }
 .iran-svg{ width:100%; height:auto; display:block; touch-action:pan-y }
 .map-layer{ transition:transform .1s linear }
 .map-glow{ fill:var(--accent); opacity:.12; filter:blur(24px) }
 .map-land{ fill:color-mix(in srgb,var(--accent) 9%,transparent); stroke:var(--accent); stroke-width:1.4; opacity:.55 }
 .prov{ cursor:pointer }
-.prov-dot{ fill:color-mix(in srgb,var(--accent) 45%,var(--card)); stroke:var(--accent); stroke-width:1.2; transition:.16s }
+.prov-dot{ fill:color-mix(in srgb,var(--accent) 45%,var(--panel-solid)); stroke:var(--accent); stroke-width:1.2; transition:.16s }
 .prov.has .prov-dot{ fill:var(--accent) }
 .prov-label{ fill:var(--muted); font-size:11px; font-family:inherit; opacity:0; transition:.16s; pointer-events:none }
 .prov-count{ fill:var(--maroon); font-size:9px; font-weight:700; pointer-events:none }
@@ -322,7 +322,7 @@ body::after{
 .toolbar{ flex-wrap:wrap }
 .sortbar{ display:flex; align-items:center; gap:8px; margin:14px 0 2px; flex-wrap:wrap }
 .sortbar .lbl{ color:var(--muted); font-size:.9rem }
-.seg{ display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; background:var(--card) }
+.seg{ display:inline-flex; border:1px solid var(--border); border-radius:999px; overflow:hidden; background:var(--panel-solid) }
 .seg button{ border:0; background:transparent; color:var(--muted); padding:7px 14px; cursor:pointer; font:inherit; transition:.15s }
 .seg button.active{ background:var(--accent); color:#241019; font-weight:700 }
 .count-badge{ display:inline-flex; align-items:center; gap:5px; color:var(--muted); font-size:.85rem }
@@ -331,21 +331,21 @@ body::after{
 .legend-toolbar{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:12px 0 4px }
 .read-time{ display:inline-flex; align-items:center; gap:6px; color:var(--muted); font-size:.9rem }
 .share{ position:relative; display:inline-block }
-.share-menu{ position:absolute; inset-inline-end:0; top:110%; background:var(--card); border:1px solid var(--line);
-  border-radius:12px; box-shadow:var(--shadow-2); padding:6px; display:none; z-index:20; min-width:170px }
+.share-menu{ position:absolute; inset-inline-end:0; top:calc(100% + 6px); background:var(--panel-solid); border:1px solid var(--border);
+  border-radius:12px; box-shadow:var(--shadow-2); padding:6px; display:none; z-index:80; min-width:185px }
 .share.open .share-menu{ display:block }
 .share-menu a, .share-menu button{ display:flex; width:100%; gap:8px; align-items:center; padding:9px 12px; border:0;
   background:transparent; color:var(--text); text-decoration:none; border-radius:8px; cursor:pointer; font:inherit; text-align:start }
 .share-menu a:hover, .share-menu button:hover{ background:color-mix(in srgb,var(--accent) 16%,transparent) }
-.audio-block{ margin:18px 0; padding:14px; border:1px solid var(--line); border-radius:var(--radius);
-  background:color-mix(in srgb,var(--card) 70%,transparent); box-shadow:var(--shadow-1) }
+.audio-block{ margin:18px 0; padding:14px; border:1px solid var(--border); border-radius:var(--radius);
+  background:color-mix(in srgb,var(--panel-solid) 70%,transparent); box-shadow:var(--shadow-1) }
 .audio-block .cap{ display:flex; align-items:center; gap:8px; color:var(--muted); margin-bottom:8px; font-size:.92rem }
 .audio-block audio{ width:100% }
 body.reading .site-header, body.reading .site-footer, body.reading .metabar,
 body.reading .legend-toolbar, body.reading .related, body.reading .comments{ display:none !important }
-body.reading .article{ max-width:720px }
+body.reading .article{ max-width:720px; margin:24px auto }
 body.reading .body{ font-size:1.28rem; line-height:2.1 }
-.reading-exit{ position:fixed; inset-block-start:16px; inset-inline-end:16px; z-index:50; display:none }
+.reading-exit{ position:fixed; inset-block-start:16px; inset-inline-end:16px; z-index:95; display:none }
 body.reading .reading-exit{ display:inline-flex }
 
 /* ================= related ================= */
@@ -354,13 +354,13 @@ body.reading .reading-exit{ display:inline-flex }
 .related .grid{ grid-template-columns:repeat(auto-fill,minmax(220px,1fr)) }
 
 /* ================= comments ================= */
-.comments{ margin-top:36px; border-top:1px solid var(--line); padding-top:18px }
+.comments{ margin-top:36px; border-top:1px solid var(--border); padding-top:18px }
 .comments h2{ font-size:1.2rem; margin-bottom:10px }
 
 /* ================= contributors ================= */
 .contrib-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; margin-top:18px }
-.contrib-card{ display:flex; align-items:center; gap:12px; padding:14px; border:1px solid var(--line);
-  border-radius:var(--radius); background:var(--card); box-shadow:var(--shadow-1) }
+.contrib-card{ display:flex; align-items:center; gap:12px; padding:14px; border:1px solid var(--border);
+  border-radius:var(--radius); background:var(--panel-solid); box-shadow:var(--shadow-1) }
 .contrib-ava{ width:46px; height:46px; border-radius:50%; display:grid; place-items:center; font-weight:800;
   color:#241019; background:linear-gradient(135deg,var(--accent),var(--accent2)); flex:0 0 auto }
 .contrib-card .n{ font-weight:700 } .contrib-card .c{ color:var(--muted); font-size:.85rem }
@@ -441,7 +441,7 @@ body.reading .reading-exit{ display:inline-flex }
   .legend-toolbar{ gap:6px }
   .legend-toolbar .btn,.read-time{ font-size:13px }
 
-  .share-menu{ position:fixed; inset-inline:12px; inset-block-end:12px; top:auto; min-width:0; width:auto }
+  .share-menu{ position:fixed; inset-inline:12px; inset-block-end:12px; top:auto; min-width:0; width:auto; z-index:95 }
   .share.open .share-menu{ display:block }
 
   .audio-block{ padding:12px }
