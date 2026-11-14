@@ -36,7 +36,11 @@ export const STR = {
     offlineTitle:"آفلاین هستی", offlineText:"این صفحه هنوز ذخیره نشده. وقتی به اینترنت وصل شدی دوباره تلاش کن.",
     installApp:"نصب اپ",
     tgRepo:"کانال افسانه‌ها",
-    tgDev:"کانال تلگرامی توسعه‌دهنده"
+    tgDev:"کانال تلگرامی توسعه‌دهنده",
+    popTitle:"🏔️ قصه‌ای در یاد دارید؟",
+    popText:"افسانه‌های محلی و روایت‌های قدیمی شهرتان را از طریق دایرکت کانال یا ربات ناشناس بفرستید تا با نام خودتان ماندگار شود.",
+    popDirect:"📩 دایرکت کانال",
+    popBot:"🤖 ربات ناشناس"
   },
   en: {
     dir:"ltr", htmlLang:"en",
@@ -74,7 +78,11 @@ export const STR = {
     offlineTitle:"You're offline", offlineText:"This page isn't saved yet. Reconnect and try again.",
     installApp:"Install app",
     tgRepo:"Afsaneha Channel",
-    tgDev:"Developer's Telegram Channel"
+    tgDev:"Developer's Telegram Channel",
+    popTitle:"🏔️ Remember a Local Legend?",
+    popText:"Send us your hometown's folklore or voice narration via our Telegram Channel Direct or Anonymous Bot to preserve it under your name.",
+    popDirect:"📩 Channel Direct",
+    popBot:"🤖 Anonymous Bot"
   }
 };
 
