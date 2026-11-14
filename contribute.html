@@ -12,26 +12,46 @@
 <header class="site-header"><div class="container header-inner">
   <a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo-amber.png" alt="افسانه‌ها"><span data-i18n="site">افسانه‌ها</span></a>
   <div class="spacer"></div>
+  <a class="btn" href="contributors.html" data-i18n="contributors">مشارکت‌کنندگان</a>
   <a class="btn" href="about.html" data-i18n="about">درباره</a>
   <button class="btn" id="langBtn">EN</button><button class="btn" id="themeBtn" title="theme">◐</button>
 </div></header>
 <main class="container">
-  <h1 data-i18n="contributeTitle">ثبت افسانه‌ی جدید</h1>
-  <p style="color:var(--muted)" data-i18n="contributeIntro"></p>
+  <h1 data-i18n="contributeTitle">ثبت یک افسانه‌ی محلی</h1>
+
+  <div class="notice submit-alt-box">
+    <p style="margin:0 0 12px">
+      <strong>📩 ارسال سریع و مستقیم از طریق تلگرام:</strong><br>
+      در حال حاضر فرم ارسال آنلاین در حال بازبینی است. می‌توانید متن افسانه یا فایل صوتی روایت خود را با نام خودتان (یا به‌صورت ناشناس) مستقیماً به دایرکت کانال یا ربات بفرستید:
+    </p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn primary" href="https://t.me/afsanegancb?direct" target="_blank" rel="noopener">📩 ارسال به دایرکت کانال</a>
+      <a class="btn" href="https://t.me/afsaneganbot" target="_blank" rel="noopener">🤖 ارسال ناشناس (@afsaneganbot)</a>
+      <a class="btn" href="https://github.com/afsanegan/afsaneha" target="_blank" rel="noopener">💻 مشارکت در کد (GitHub)</a>
+    </div>
+  </div>
+
   <form id="contribForm" class="contrib-form">
-    <label><span data-i18n="fTitle">عنوان</span><input name="title" required></label>
+    <label><span data-i18n="fFa">عنوان افسانه (فارسی)</span><input name="title" required></label>
     <label><span data-i18n="fProvince">استان</span><input name="province" required></label>
-    <label><span data-i18n="fCity">شهر/روستا</span><input name="city"></label>
-    <label><span data-i18n="fDialect">لهجه</span><input name="dialect"></label>
-    <label><span data-i18n="fCreature">موجود/دسته</span><input name="creature"></label>
-    <label><span data-i18n="fAuthor">نام نویسنده</span><input name="author" required></label>
+    <label><span data-i18n="fCity">شهر یا روستا</span><input name="city"></label>
+    <label><span data-i18n="fDialect">لهجه (اختیاری)</span><input name="dialect"></label>
+    <label><span data-i18n="fCreature">نوع موجود/دسته (اختیاری)</span><input name="creature"></label>
+    <label><span data-i18n="fAuthor">نام شما (نمایش داده می‌شود)</span><input name="author" required></label>
     <label><span data-i18n="fCoords">مختصات (lat, lon)</span><input name="coordinates" placeholder="35.70, 51.42"></label>
-    <label class="full"><span data-i18n="fBody">متن افسانه</span><textarea name="body" rows="10" required></textarea></label>
-    <div class="full"><button class="btn primary" type="submit" data-i18n="fSubmit">ارسال</button></div>
+    <label class="full"><span data-i18n="fBody">متن افسانه (فارسی)</span><textarea name="body" rows="10" required></textarea></label>
+    <div class="full"><button class="btn primary" type="submit" data-i18n="submit">ارسال برای بازبینی</button></div>
   </form>
   <div id="contribResult" class="notice" style="display:none"></div>
 </main>
-<footer class="site-footer"><div class="container footer-inner"><span data-i18n="footer"></span></div></footer>
+<footer class="site-footer"><div class="container footer-inner">
+  <span data-i18n="footer"></span>
+  <span class="spacer"></span>
+  <div class="footer-links">
+    <a href="https://t.me/afsanegancb" target="_blank" rel="noopener" data-i18n="tgRepo">کانال افسانه‌ها</a>
+    <a href="https://t.me/faragomancb" target="_blank" rel="noopener" data-i18n="tgDev">کانال تلگرامی توسعه‌دهنده</a>
+  </div>
+</div></footer>
 <script type="module" src="assets/js/contribute.js"></script>
 <script src="assets/js/nav.js" defer></script>
 </body>
