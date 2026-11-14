@@ -34,7 +34,9 @@ export const STR = {
     legendsCount:"افسانه", views:"بازدید",
     season:"فصل", seasonAuto:"خودکار", seasonNone:"بدون جلوه", seasonYalda:"شب یلدا", seasonNowruz:"نوروز",
     offlineTitle:"آفلاین هستی", offlineText:"این صفحه هنوز ذخیره نشده. وقتی به اینترنت وصل شدی دوباره تلاش کن.",
-    installApp:"نصب اپ"
+    installApp:"نصب اپ",
+    tgRepo:"کانال افسانه‌ها",
+    tgDev:"کانال تلگرامی توسعه‌دهنده"
   },
   en: {
     dir:"ltr", htmlLang:"en",
@@ -70,7 +72,9 @@ export const STR = {
     legendsCount:"legends", views:"views",
     season:"Season", seasonAuto:"Auto", seasonNone:"None", seasonYalda:"Yalda night", seasonNowruz:"Nowruz",
     offlineTitle:"You're offline", offlineText:"This page isn't saved yet. Reconnect and try again.",
-    installApp:"Install app"
+    installApp:"Install app",
+    tgRepo:"Afsaneha Channel",
+    tgDev:"Developer's Telegram Channel"
   }
 };
 
