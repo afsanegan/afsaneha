@@ -1,5 +1,5 @@
 // Homepage: manifest -> cards, search + filters + sorting, interactive map,
-// language/theme/season toggles, PWA install.
+// language/theme/season toggles, PWA install, welcome popup.
 import { STR, getLang, setLang, getTheme, setTheme, applyDocLang } from "./i18n.js";
 import { buildMap } from "./map.js";
 import { getCounts } from "./views.js";
@@ -80,9 +80,25 @@ function initToggles(){
   const seasonSel=document.getElementById("seasonSel");
   if(seasonSel){ seasonSel.value=localStorage.getItem("afsaneha_season")||"auto"; seasonSel.addEventListener("change",()=>setSeasonPref(seasonSel.value)); }
 }
+
+function initWelcomePopup(){
+  const pop = document.getElementById("welcomePopup");
+  const closeBtn = document.getElementById("welcomeClose");
+  if(!pop) return;
+  if(sessionStorage.getItem("afsaneha_pop_closed") === "1") return;
+  const dismiss = () => {
+    pop.classList.remove("show");
+    sessionStorage.setItem("afsaneha_pop_closed", "1");
+  };
+  setTimeout(() => { pop.classList.add("show"); }, 1200);
+  closeBtn?.addEventListener("click", dismiss);
+  pop.querySelectorAll("a").forEach(a => a.addEventListener("click", dismiss));
+  document.addEventListener("keydown", e => { if(e.key === "Escape" && pop.classList.contains("show")) dismiss(); });
+}
+
 // PWA install prompt
 let deferredPrompt=null;
 addEventListener("beforeinstallprompt",e=>{ e.preventDefault(); deferredPrompt=e; const b=document.getElementById("installBtn"); if(b) b.style.display="inline-flex"; });
 document.addEventListener("click",e=>{ if(e.target && e.target.id==="installBtn" && deferredPrompt){ deferredPrompt.prompt(); deferredPrompt=null; e.target.style.display="none"; } });
 
-(async function(){ initToggles(); updateLogo(); applySeason(); await loadData(); applyStrings(); })();
+(async function(){ initToggles(); updateLogo(); applySeason(); await loadData(); applyStrings(); initWelcomePopup(); })();
