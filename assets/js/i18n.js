@@ -90,4 +90,15 @@ export function getLang(){ return localStorage.getItem("afsaneha_lang") || "fa";
 export function setLang(l){ localStorage.setItem("afsaneha_lang", l); }
 export function getTheme(){ return localStorage.getItem("afsaneha_theme") || "dark"; }
 export function setTheme(t){ localStorage.setItem("afsaneha_theme", t); document.documentElement.setAttribute("data-theme", t); }
-export function applyDocLang(lang){ const s = STR[lang]; document.documentElement.lang = s.htmlLang; document.documentElement.dir = s.dir; }
+export function applyDocLang(lang){ const s = STR[lang] || STR.fa; document.documentElement.lang = s.htmlLang; document.documentElement.dir = s.dir; }
+export function applyI18n(lang = getLang()){
+  const s = STR[lang] || STR.fa;
+  applyDocLang(lang);
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const k = el.getAttribute("data-i18n");
+    if (s[k] !== undefined) el.textContent = s[k];
+  });
+  const lb = document.getElementById("langBtn");
+  if (lb) lb.textContent = s.langBtn;
+}
+export function setupChrome(){}
